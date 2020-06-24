@@ -1,8 +1,10 @@
 const express = require('express'),
       bodyParser = require('body-parser'),  
+      session = require('express-session'), //para la autenticación
       morgan = require('morgan'),
       helmet = require('helmet'),
       routes = require('./routes/movie-routes'),
+      errors = require('./middlewares/errors'), //pra manejar todos los errores, 404,401 como middlewares.
       methodOverride = require('method-override'), 
       app = express();
 
