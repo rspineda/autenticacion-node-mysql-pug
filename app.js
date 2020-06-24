@@ -4,6 +4,7 @@ const express = require('express'),
       morgan = require('morgan'),
       helmet = require('helmet'),
       routes = require('./routes/movie-routes'),
+      auth = require('./routes/auth-routes'), //para la autenticación
       errors = require('./middlewares/errors'), //pra manejar todos los errores, 404,401 como middlewares.
       methodOverride = require('method-override'), 
       app = express();
@@ -19,9 +20,18 @@ app.use(methodOverride(function (req, res) {
       return method
     }
   }));
+//app.set('trust proxy', 1) // en producción lo necesitaría (para el session) si tuviera habilitado en secure: true, pero tambien necesitaría el https
+app.use(session({
+  secret: 'peluso',
+  resave: true, 
+  saveUninitialized: true,
+  //cookie: { secure: true } //no lo necesito ahora, pero en produccion con https lo tendría.
+}))
 app.use(morgan('dev'))
 app.use(express.static('public'));
-app.use(routes);  
+app.use(routes); //middleware
+app.use(auth); //middleware
+app.use(errors.http404); //dentro de los errores tendré este middleware
 
 
 
