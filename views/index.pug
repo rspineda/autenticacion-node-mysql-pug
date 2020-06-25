@@ -14,7 +14,7 @@ block content
                     th Imagen
                     th
                     th 
-                        form(method='get', action='/add')
+                        form(method='get', action='movie/add')
                             input(type='submit', value='Añadir', class='button add')
                 each movie in data 
                     tr
@@ -25,10 +25,10 @@ block content
                         td
                             img.imagen(src=`${movie.image}`)
                         td 
-                            form(method="get", action=`/update/${movie.movie_id}`)
+                            form(method="get", action=`/movie/update/${movie.movie_id}`)
                                 input(type="submit", value="Editar")
                         td 
-                            form(method="post", action=`/delete/${movie.movie_id}`)
+                            form(method="post", action=`movie/delete/${movie.movie_id}`)
                                 input(type="button", value="delete", onclick="eliminar(this)")
                                 input(type="hidden", name="_method", value="DELETE")
         -else

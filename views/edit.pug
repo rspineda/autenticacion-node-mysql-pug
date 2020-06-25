@@ -5,7 +5,7 @@ block content
         include header
         .item
             -if(data.length)
-                form.form(method='POST', action=`/update/${data[0].movie_id}`)    
+                form.form(method='POST', action=`movie/update/${data[0].movie_id}`)    
                     fieldset
                         .box1
                             label(for='id') IMDB id:
