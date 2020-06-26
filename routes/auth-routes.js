@@ -6,10 +6,11 @@ const controller = require('../controllers/auth-controller'),
 
 router
     .get('/', controller.index)
-    .get('/login', controller.logInGet)
+    .get('/login', controller.logInGet)/*
     .post('/login', controller.logInPost)
     .get('/singup', controller.singUpGet)
     .post('/singup', controller.singUpPost)
     .get('logout', controller.logOut);
+    */
     
 module.exports = router;
