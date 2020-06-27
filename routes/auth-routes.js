@@ -6,10 +6,10 @@ const controller = require('../controllers/auth-controller'),
 
 router
     .get('/', controller.index)
-    .get('/login', controller.logInGet)/*
+    .get('/login', controller.logInGet)
     .post('/login', controller.logInPost)
-    .get('/singup', controller.singUpGet)
-    .post('/singup', controller.singUpPost)
+    .get('/signup', controller.signUpGet)
+    .post('/signup', controller.signUpPost)/*
     .get('logout', controller.logOut);
     */
     

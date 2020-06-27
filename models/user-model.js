@@ -8,8 +8,8 @@ Auth.getUser = ()=>{
 
 };
 
-Auth.setUser = ()=>{
-
+Auth.setUser = (user, cb)=>{
+    authModel.query("INSERT INTO users SET ?", user, cb)
 };
 
 module.exports = Auth;

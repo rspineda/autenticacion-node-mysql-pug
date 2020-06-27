@@ -7,7 +7,7 @@ block content
         -if(message)
             div.error=message
         article.article 
-            form.form(method="post", action="/login")
+            form.form(method="post", action="/signup")
                 fieldset
                     div
                         label(for="username") Usuario:
@@ -16,8 +16,8 @@ block content
                         label(for="password") Password:
                         input#password(type="password", name="password", required)
                     div
-                        input(type="submit", value="Entrar")
-            a(href="/signup") Registrarse
+                        input(type="submit", value="Registrarse")
+            a(href="/login") Login con cuenta ya registrada
 
         br
 

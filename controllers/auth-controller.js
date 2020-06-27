@@ -24,12 +24,34 @@ ControllerAuth.logInPost = (req,res,next)=>{
 
 };
 
-ControllerAuth.singUpGet = (req,res,next)=>{
-
+ControllerAuth.signUpGet = (req,res,next)=>{
+        let locals = {
+                title : 'Regristro de Usuarios'
+         };
+        res.render('signup-form', locals);
 };
 
 ControllerAuth.signUpPost = (req,res,next)=>{
-
+        const user ={
+                user_id : 0,
+                username: req.body.username,
+                password: req.body.password
+        };
+        console.log('El nuevo usuario que se registra: ',user),
+        authModel.setUser(user, (err, data)=>{
+                if(err){
+                     let locals = {
+                                title : 'Error al consultar la base de datos',
+                                description: "Error de sintaxis SQL",
+                                error : err
+                      };     
+                      res.render('error', locals);       
+                }else{
+                     console.log("usuario creado correctamente");   
+                     res.redirect('/');
+                        
+                }
+        });
 };
 
 ControllerAuth.logOut = (req,res,next)=>{
