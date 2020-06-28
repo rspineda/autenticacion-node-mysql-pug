@@ -4,8 +4,8 @@ const Auth = ()=>{
 
 };
 
-Auth.getUser = ()=>{
-
+Auth.getUser = (user, cb)=>{
+    authModel.query(`SELECT * FROM users WHERE username = '${user.username}' AND password = '${user.password}'`, cb);
 };
 
 Auth.setUser = (user, cb)=>{
