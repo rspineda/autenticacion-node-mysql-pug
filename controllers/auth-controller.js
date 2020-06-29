@@ -39,7 +39,7 @@ ControllerAuth.logInPost = (req,res,next)=>{
                         req.session.username = data; //le asigno a a la variable username la fila de la tabal que me devuelva mysql
                         console.log("el objeto session: ",req.session, "y el objeto de mysql:", data);
 
-                        return (req.session.username)?res.redirect('/movies'):errors.http401;
+                        return (req.session.username)?res.redirect('/movies'):errors.http401(req,res,next);
                 }
         })
 };
