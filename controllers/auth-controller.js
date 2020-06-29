@@ -36,7 +36,7 @@ ControllerAuth.logInPost = (req,res,next)=>{
                         };
                         res.render('error', locals);
                 }else{
-                        req.session.username = data; //le asigno a a la variable username la fila de la tabal que me devuelva mysql
+                        req.session.username = (data[0].count == 1)?user.username:null; //le asigno a a la variable username de req.user. el numero de coincidencia que hay en la base dedatos con esos datos de login. Si hay uno, coge el valor del usuario del login, si hay cero significa que no coincide con ningun usuario en la base de datos, y no le dejo acceder.
                         console.log("el objeto session: ",req.session, "y el objeto de mysql:", data);
 
                         return (req.session.username)?res.redirect('/movies'):errors.http401(req,res,next);
