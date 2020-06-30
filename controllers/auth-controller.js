@@ -75,7 +75,9 @@ ControllerAuth.signUpPost = (req,res,next)=>{
 };
 
 ControllerAuth.logOut = (req,res,next)=>{
-
+        req.session.destroy((err=>{
+                return (err)?errors.http500(req,res,next):res.redirect('/'); //si hay un error al destruir la sesion le paso un error en el servidor, si todo va bien lo mando al home paraun nuevo login.
+        }))
 };
 
 

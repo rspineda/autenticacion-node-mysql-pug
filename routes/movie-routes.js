@@ -9,8 +9,8 @@ router
     .get('/movie/add', controller.add)
     .post('/movies', controller.saveAdd)
     .get('/movie/update/:movie_id', controller.update)
-    .put('movie//update/:movie_id', controller.saveUpdate) //aqui en crud sería post
-    .delete('movie/delete/:movie_id', controller.delete) //aqui en crud sería post
+    .put('/movie/update/:movie_id', controller.saveUpdate) //aqui en crud sería post
+    .delete('/movie/delete/:movie_id', controller.delete) //aqui en crud sería post
 
 
 

@@ -5,6 +5,7 @@ block content
         include header
         article.item
         h2 Bienvenido #{user}
+        a(href="/logout") Cerrar sesión
         -if(data.length)
             table.table
                 tr
@@ -15,7 +16,7 @@ block content
                     th Imagen
                     th
                     th 
-                        form(method='get', action='movie/add')
+                        form(method='get', action='/movie/add')
                             input(type='submit', value='Añadir', class='button add')
                 each movie in data 
                     tr
@@ -29,7 +30,7 @@ block content
                             form(method="get", action=`/movie/update/${movie.movie_id}`)
                                 input(type="submit", value="Editar")
                         td 
-                            form(method="post", action=`movie/delete/${movie.movie_id}`)
+                            form(method="post", action=`/movie/delete/${movie.movie_id}`)
                                 input(type="button", value="delete", onclick="eliminar(this)")
                                 input(type="hidden", name="_method", value="DELETE")
         -else

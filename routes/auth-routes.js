@@ -9,8 +9,7 @@ router
     .get('/login', controller.logInGet)
     .post('/login', controller.logInPost)
     .get('/signup', controller.signUpGet)
-    .post('/signup', controller.signUpPost)/*
-    .get('logout', controller.logOut);
-    */
+    .post('/signup', controller.signUpPost)
+    .get('/logout', controller.logOut);
     
 module.exports = router;
