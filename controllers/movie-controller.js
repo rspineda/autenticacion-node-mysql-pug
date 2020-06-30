@@ -20,6 +20,7 @@ ControllerMovie.getAll = (req, res, next)=>{
                 }else{
                     let locals ={
                         title: 'Lista de peliculas',
+                        user: req.session.username, //aqui le paso el usuario de sesion
                         data: result
                     }
                     res.render('index', locals);
